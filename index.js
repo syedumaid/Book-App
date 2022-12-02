@@ -1,6 +1,7 @@
+//Approach was done using Classes - New to me
 
 class Book {
-    constructor(title, author, isbn) {
+    constructor(title, author, isbn) {    //Constructor works similar to Java Constructor
       this.title = title;
       this.author = author;
       this.isbn = isbn;
@@ -8,7 +9,7 @@ class Book {
   }
   
   class UI {
-    static displayBooks() {
+    static displayBooks() {              //Static method - cannot call static method on obj only on obj class
       const books = Store.getBooks();
   
       books.forEach((book) => UI.addBookToList(book));
@@ -59,7 +60,7 @@ class Book {
       if(localStorage.getItem('books') === null) {
         books = [];
       } else {
-        books = JSON.parse(localStorage.getItem('books'));
+        books = JSON.parse(localStorage.getItem('books')); //getting the stored values
       }
   
       return books;
@@ -68,7 +69,7 @@ class Book {
     static addBook(book) {
       const books = Store.getBooks();
       books.push(book);
-      localStorage.setItem('books', JSON.stringify(books)); //set item stores the value here
+      localStorage.setItem('books', JSON.stringify(books)); //local storage
     }
   
     static removeBook(isbn) {
@@ -76,7 +77,7 @@ class Book {
   
       books.forEach((book, index) => {
         if(book.isbn === isbn) {
-          books.splice(index, 1);
+          books.splice(index, 1);           //splice - add or remove arr elements
         }
       });
   
